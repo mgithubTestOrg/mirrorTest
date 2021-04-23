@@ -35,6 +35,11 @@ jobs:
           git push origin main --force
           
           git checkout dev
+          if [ -f "requirements.yml" ];then
+            sed -i 's/github/gitee/g' requirements.yml
+            git add requirements.yml
+            git commit -m "Make requirements.yml compatible with gitee"
+          fi
           git push origin dev --force
           
           git checkout main
