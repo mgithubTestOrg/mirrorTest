@@ -38,10 +38,3 @@ jobs:
           git for-each-ref --format 'delete %(refname)' refs/pull | git update-ref --stdin
           git push origin main
           
-          git fetch -p origin
-          if [ -f "requirements.yml" ];then
-            sed -i 's/github/gitee/g' requirements.yml
-            git add requirements.yml
-            git commit -m "Make requirements.yml compatible with gitee"
-          fi
-          git push origin main
